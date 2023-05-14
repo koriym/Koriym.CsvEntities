@@ -2,7 +2,7 @@
 
 namespace Koriym\CsvEntities;
 
-final class FakeMemo
+final class Memo
 {
     public function __construct(
         public string $id,

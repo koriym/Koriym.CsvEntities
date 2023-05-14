@@ -58,7 +58,8 @@
             "@metrics"
         ],
         "post-install-cmd": "@composer bin all install --ansi",
-        "post-update-cmd": "@composer bin all update --ansi"
+        "post-update-cmd": "@composer bin all update --ansi",
+        "demo": "php demo/run.php"
     },
     "scripts-descriptions": {
         "test": "Run unit tests",
