@@ -8,16 +8,14 @@ use PHPUnit\Framework\TestCase;
 
 class CsvEntitiesTest extends TestCase
 {
-    protected CsvEntities $csvEntities;
-
-    protected function setUp(): void
+    public function testInvoke(): void
     {
-        $this->csvEntities = new CsvEntities();
-    }
-
-    public function testIsInstanceOfCsvEntities(): void
-    {
-        $actual = $this->csvEntities;
-        $this->assertInstanceOf(CsvEntities::class, $actual);
+        $memos = (new CsvEntities())(Memo::class, '1,2', 'run,walk');
+        $this->assertContainsOnlyInstancesOf(
+            className: Memo::class,
+            haystack: $memos,
+        );
+        $this->assertSame(['1', 'run'], [$memos[0]->id, $memos[0]->title]);
+        $this->assertSame(['2', 'walk'], [$memos[1]->id, $memos[1]->title]);
     }
 }
