@@ -1,13 +1,11 @@
 # Koriym.CsvEntities
 
-[Japanese](README.ja.md)
-
 ## PDO - Fetching one to many related tables together
 
 
-Create a one-to-many entity list with Todo having multiple Memos in PDO as shown below.
+下記のようにTodoが複数のMemoを持つone-to-manyのエンティティリストをPDOで作成します。
 
-### Example
+### 例
 
 ```sql
 SELECT todo.id AS id,
@@ -20,17 +18,17 @@ FROM todo
 GROUP BY todo.id;
 ```
 
-Memo class
+Memoクラス
 ```php
 final class Memo
 {
     public string $id,
     public string $title
 }
-````
+```
 
-Todo class
-````php
+Todoクラス
+```php
 final class Todo
 {
     public string $id,
@@ -38,11 +36,11 @@ final class Todo
     /** @var array<Memo> */
     public array $memos,
 }
-````
+```
 
-## Usage
+## 使い方
 
-Change the above SQL and entity classes as follows.
+上記のSQLとエンティティクラスを下記のように変更します。
 
 ```sql
 SELECT todo.id AS id,
@@ -54,6 +52,7 @@ FROM todo
        ON memo.todo_id = todo.id
 GROUP BY todo.id;
 ```
+
 
 ```php
 final class Memo
@@ -80,17 +79,16 @@ final class Todo
         $this->memos = (new CsvEntities())(Memo::class, $memoIds, $memoBodies);
     }
 }
-```
+````
 
-After `query()` SQL, fetchAll as follows.
-
+SQLを`query()`した後に、下記のようにfetchAllします。
 ```php
 $todoList = $pdo->fetchAll(PDO::FETCH_FUNC, static function (...$args) {
     return new Todo(...$args);
 });
 ```
-
-We get the `Todo[]` array we originally intended.
+`
+当初目的としたTodo[]配列が得られます。
 
 ```php
 final class Todo
@@ -102,7 +100,7 @@ final class Todo
 }
 ```
 
-## Install
+## インストール
 
 ```
 composer require koriym/csv-entities
