@@ -13,6 +13,7 @@ use function method_exists;
 
 final class CsvEntities implements CsvEntitiesInterface
 {
+    /** @param non-empty-string $separator */
     public function __construct(
         private string $separator = '/',
     ) {
