@@ -11,14 +11,11 @@ use function count;
 use function explode;
 use function method_exists;
 
-final class CsvEntities
+final class CsvEntities implements CsvEntitiesInterface
 {
     /**
-     * @param class-string<T> $className
+     * {@inheritDoc}
      *
-     * @return list<T>
-     *
-     * @template T as object
      * @no-named-arguments
      */
     public function __invoke(string $className, string|null ...$csvs): array
