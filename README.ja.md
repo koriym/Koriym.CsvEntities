@@ -100,6 +100,12 @@ final class Todo
 }
 ```
 
+セパレーターを指定できます。
+
+```php
+$this->memos = (new CsvEntities())->get("\t", Memo::class, $memoIds, $memoBodies); // tab separator
+```
+
 ## インストール
 
 ```
