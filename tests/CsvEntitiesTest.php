@@ -18,4 +18,15 @@ class CsvEntitiesTest extends TestCase
         $this->assertSame(['1', 'run'], [$memos[0]->id, $memos[0]->title]);
         $this->assertSame(['2', 'walk'], [$memos[1]->id, $memos[1]->title]);
     }
+
+    public function testGet(): void
+    {
+        $memos = (new CsvEntities())->get("\t", Memo::class, "1\t2", "run\twalk");
+        $this->assertContainsOnlyInstancesOf(
+            className: Memo::class,
+            haystack: $memos,
+        );
+        $this->assertSame(['1', 'run'], [$memos[0]->id, $memos[0]->title]);
+        $this->assertSame(['2', 'walk'], [$memos[1]->id, $memos[1]->title]);
+    }
 }

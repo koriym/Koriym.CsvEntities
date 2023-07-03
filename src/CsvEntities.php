@@ -13,12 +13,6 @@ use function method_exists;
 
 final class CsvEntities implements CsvEntitiesInterface
 {
-    /** @param non-empty-string $separator */
-    public function __construct(
-        private string $separator = '/',
-    ) {
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -26,7 +20,20 @@ final class CsvEntities implements CsvEntitiesInterface
      */
     public function __invoke(string $className, string|null ...$csvs): array
     {
-        $separator = $this->separator;
+        return $this->get('/', $className, ...$csvs);
+    }
+
+    /**
+     * @param non-empty-string $separator
+     * @param class-string<T>  $className
+     *
+     * @return list<T>
+     *
+     * @template T as object
+     * @no-named-arguments
+     */
+    public function get(string $separator, string $className, string|null ...$csvs): array
+    {
         $arrays = array_map(static fn (string|null $csv) => empty($csv) ? [] : explode($separator, $csv), [...$csvs]);
         $length = count($arrays[0]);
         $entities = [];
