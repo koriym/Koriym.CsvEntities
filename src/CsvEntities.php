@@ -20,7 +20,7 @@ final class CsvEntities implements CsvEntitiesInterface
      */
     public function __invoke(string $className, string|null ...$csvs): array
     {
-        return $this->get('/', $className, ...$csvs);
+        return $this->get(',', $className, ...$csvs);
     }
 
     /**
