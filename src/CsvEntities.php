@@ -24,12 +24,8 @@ final class CsvEntities implements CsvEntitiesInterface
     }
 
     /**
-     * @param non-empty-string $separator
-     * @param class-string<T>  $className
+     * {@inheritDoc}
      *
-     * @return list<T>
-     *
-     * @template T as object
      * @no-named-arguments
      */
     public function get(string $separator, string $className, string|null ...$csvs): array
