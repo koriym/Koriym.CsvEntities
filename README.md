@@ -108,6 +108,14 @@ Separator can be specified。
 $this->memos = (new CsvEntities())->get("\t", Memo::class, $memoIds, $memoBodies); // tab separator
 ```
 
+## Set maximum concatenation value for GROUP_CONCAT
+
+The maximum value of the concatenation process of columns using `GROUP_CONCAT` must be changed to `group_concat_max_len` in an ini file or query. (default value is 1024)
+
+```sql
+SET SESSION group_concat_max_len = 200000;
+```
+
 ## Install
 
 ```

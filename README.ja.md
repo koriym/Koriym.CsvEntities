@@ -106,8 +106,17 @@ final class Todo
 $this->memos = (new CsvEntities())->get("\t", Memo::class, $memoIds, $memoBodies); // tab separator
 ```
 
+## GROUP_CONCATの連結最大値の設定
+
+`GROUP_CONCAT`を使ったカラムの連結処理の最大値はiniファイルまたはクエリーで`group_concat_max_len`を変更する必要があります。(初期値は1024)
+
+```sql
+SET SESSION group_concat_max_len = 200000;
+```
+
 ## インストール
 
 ```
 composer require koriym/csv-entities
 ```
+
