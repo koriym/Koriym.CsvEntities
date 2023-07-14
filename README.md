@@ -102,7 +102,7 @@ final class Todo
 }
 ```
 
-Separator can be specified。
+Separator can be specified.
 
 ```php
 $this->memos = (new CsvEntities())->get("\t", Memo::class, $memoIds, $memoBodies); // tab separator
