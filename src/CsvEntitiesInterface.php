@@ -15,4 +15,15 @@ interface CsvEntitiesInterface
      * @no-named-arguments
      */
     public function __invoke(string $className, string|null ...$csvs): array;
+
+    /**
+     * @param non-empty-string $separator
+     * @param class-string<T>  $className
+     *
+     * @return list<T>
+     *
+     * @template T as object
+     * @no-named-arguments
+     */
+    public function get(string $separator, string $className, string|null ...$csvs): array;
 }

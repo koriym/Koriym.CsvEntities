@@ -20,7 +20,17 @@ final class CsvEntities implements CsvEntitiesInterface
      */
     public function __invoke(string $className, string|null ...$csvs): array
     {
-        $arrays = array_map(static fn (string|null $csv) => empty($csv) ? [] : explode(',', $csv), [...$csvs]);
+        return $this->get(',', $className, ...$csvs);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @no-named-arguments
+     */
+    public function get(string $separator, string $className, string|null ...$csvs): array
+    {
+        $arrays = array_map(static fn (string|null $csv) => empty($csv) ? [] : explode($separator, $csv), [...$csvs]);
         $length = count($arrays[0]);
         $entities = [];
         for ($i = 0; $i < $length; $i++) {
