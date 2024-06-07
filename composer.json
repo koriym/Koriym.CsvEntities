@@ -1,6 +1,6 @@
 {
     "name": "koriym/csv-entities",
-    "description": "",
+    "description": "A PDO mapping library that simplifies fetching and handling of one-to-many relationships",
     "license": "MIT",
     "authors": [
         {
