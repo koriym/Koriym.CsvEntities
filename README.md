@@ -1,5 +1,7 @@
 # Koriym.CsvEntities
 
+Efficiently manage one-to-many relationships in PDO with Koriym.CsvEntities. This library simplifies the process of fetching related tables by transforming the results into easily manageable PHP entities. Ideal for scenarios where a primary entity has multiple related sub-entities, it streamlines data handling and reduces the complexity of your code.
+
 [Japanese](README.ja.md)
 
 ## PDO - Fetching one to many related tables together
