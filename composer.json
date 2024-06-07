@@ -77,6 +77,10 @@
     "config": {
         "allow-plugins": {
             "bamarni/composer-bin-plugin": true
+        },
+        "bamarni-bin": {
+            "bin-links": true,
+            "forwaard-command": true
         }
     }
 }
